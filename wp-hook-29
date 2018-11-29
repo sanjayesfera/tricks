@@ -1,0 +1,26 @@
+
+ACTION HOOKS
+
+function print_my_head($data){
+   
+  echo "<h1>Custom Action head</h1>";
+  print_r($data);
+}
+
+add_action("print_my_head","print_my_head");
+
+if(has_action("print_my_head")){
+   do_action("print_my_head",array("name"=>"sanjay","email"=>"abc@gmail.com"));
+}
+
+FILTER HOOKS
+
+<br/>
+<?php apply_filters("my_custom_filter","Hello world"); ?><br/>
+
+function my_custom_filter($content){
+   
+echo "<h1>".$content."</h1>";
+}
+
+add_filter("my_custom_filter","my_custom_filter");
